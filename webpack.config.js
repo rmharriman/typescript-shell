@@ -26,7 +26,17 @@ module.exports = {
       },
       {
           test: /\.css$/,
-          use: [MiniCssExtractPlugin.loader, "css-loader"]
+          use: [
+            MiniCssExtractPlugin.loader, 
+            {
+              loader: "typings-for-css-modules-loader",
+              options: {
+                modules: true,
+                namedExport: true,
+                camelCase: true
+              }
+            }
+            ]
       }
     ]
   },
